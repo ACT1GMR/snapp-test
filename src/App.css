@@ -1,0 +1,8 @@
+.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  direction: rtl;
+  font-family: IRANSans, Tahoma, "DejaVu Sans", helvetica, arial, freesans, sans-serif;
+  height: 100%;
+}

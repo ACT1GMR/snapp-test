@@ -1,0 +1,9 @@
+.Video {
+
+}
+
+.Video__Video {
+    max-height: 250px;
+    object-fit: cover;
+    object-position: center;
+}
