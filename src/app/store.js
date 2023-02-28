@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import listReducer from '../features/list/slice';
+import eventReducer from '../features/event/eventSlice';
 
 export const store = configureStore({
   reducer: {
-    list: listReducer,
+    event: eventReducer
   },
 });

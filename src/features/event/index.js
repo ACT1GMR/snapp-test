@@ -2,8 +2,8 @@ import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import classnames from "classnames";
 import Navigator from "./navigator"
-import Forms from "./forms"
-import Confirm from "./confirm"
+import Forms from "./forms";
+import Home from "./Home";
 import {selectEvent} from './eventSlice';
 import {eventStep} from '../../app/status';
 
@@ -18,9 +18,8 @@ export default function Index() {
 
   return (
     <div className={classNames}>
-      {step !== eventStep.INTRO && <Navigator/>}
+      {step == eventStep.INTRO && <Home/>}
       <Forms/>
-      {step !== eventStep.INTRO && <Confirm/>}
     </div>
   );
 }
