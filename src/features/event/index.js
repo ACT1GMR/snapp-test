@@ -1,28 +1,21 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import classnames from "classnames";
-import Navigator from "./navigator"
-import Forms from "./forms";
-import Home from "./Home";
+import {useSelector} from 'react-redux';
 import {selectEvent} from './eventSlice';
 import {eventStep} from '../../app/status';
-
+import classnames from "classnames";
+import Forms from "./forms";
+import Home from "./Home";
 
 export default function Index() {
   const event = useSelector(selectEvent);
   const {step} = event;
   const classNames = classnames({
-    "overflow-y-auto space-y-4 h-full w-full lg:max-w-sm md:max-h-120": true,
-    "text-center": status === "error"
+    "bg-black h-full w-full md:max-h-96 md:max-w-sm p-4 relative": true
   });
 
   return (
     <div className={classNames}>
-      {step == eventStep.INTRO && <Home/>}
-      <Forms/>
+      {step === eventStep.INTRO ? <Home/> : <Forms/>}
     </div>
   );
 }
-
-
-

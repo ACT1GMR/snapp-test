@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import classnames from "classnames";
-import {eventStep} from '../../../app/status';
-import Confirm from "../../../common/confirm";
-import {changeStep, info} from "../eventSlice";
+import Confirm from "../confirm";
+import {info} from "../eventSlice";
 import {useDispatch} from "react-redux";
 
 export default function Info() {
@@ -10,37 +8,34 @@ export default function Info() {
   const [dateTime, setDateTime] = useState();
   const [budget, setBudget] = useState();
   const dispatch = useDispatch();
-  const classNames = classnames({
-    "overflow-y-auto space-y-4 h-full w-full lg:max-w-sm md:max-h-120": true,
-    "text-center": status === "error"
-  });
+
+  const nextStep = () => {
+    dispatch(info({name, dateTime: new Date(dateTime).getTime(), budget}))
+  }
 
   return (
-    <div className={classNames}>
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <InfoItem name="EventName" text="Event Name" value={name} onChange={setName}/>
-        <InfoItem name="DateTime" text="Date time" placeholder="DD-MM-YYYY HH:MM" inputType="datetime-local"
+    <div>
+      <form className="shadow-md rounded">
+        <InfoItem name="EventName" label="Event Name" value={name} onChange={setName}/>
+        <InfoItem name="DateTime" label="Date time" placeholder="DD-MM-YYYY HH:MM" type="datetime-local"
                   value={dateTime} onChange={setDateTime}/>
-        <InfoItem name="Budget" text="Budget" value={budget} onChange={setBudget}/>
+        <InfoItem name="Budget" label="Budget" value={budget} onChange={setBudget} type="number"/>
       </form>
-      <Confirm disable={!name || !dateTime || !budget} onClick={()=> dispatch(info({name, dateTime, budget}))}/>
+      <Confirm disable={!name || !dateTime || !budget} onClick={() => nextStep()}/>
     </div>
   );
 }
 
-function InfoItem({name, label, placeholder, inputType, onChange, value}) {
+function InfoItem({name, label, placeholder, type, onChange, value}) {
   return <>
-    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={name}>
+    <label className="block font-bold text-xs mb-2 mt-4" htmlFor={name}>
       {label}
     </label>
     <input
-      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+      className="shadow appearance-none border-neutral-700 bg-neutral-900 text-white border rounded-md w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
       value={value}
       required
       onChange={e => onChange(e.target.value)}
-      id={name} type={inputType || "text"} placeholder={placeholder || ""}/>
+      id={name} type={type || "text"} placeholder={placeholder || ""}/>
   </>
 }
-
-
-

@@ -1,16 +1,13 @@
 import React from 'react';
-import Index from './features/list';
+import Event from './features/event';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <div className="py-10 text-center">
-        <h3 className="font-medium leading-tight text-lg ">Behnam Salarinia UI Code Challenge</h3>
-        <h4 className="leading-tight text-xs text-yellow-500 text-center">Loading video list and preview may take some time</h4>
-      </div>
-
-      <Index />
+      <div className="mt-9 hidden md:block text-center"/>
+      <Event/>
+      <div className="mb-9 hidden md:block text-center"/>
     </div>
   );
 }

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  direction: rtl;
-  font-family: IRANSans, Tahoma, "DejaVu Sans", helvetica, arial, freesans, sans-serif;
+  font-family: Montserrat, Tahoma, "DejaVu Sans", helvetica, arial, freesans, sans-serif;
+  color: #fff;
   height: 100%;
 }

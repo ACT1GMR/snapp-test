@@ -33,9 +33,9 @@ export const eventSlice = createSlice({
     size: (state, {payload}) => {
       state.size = payload;
     },
-    info: (state, {name, dateTime, budget}) => {
+    info: (state, {payload: {name, dateTime, budget}}) => {
       state.name = name;
-      state.date = dateTime;
+      state.dateTime = dateTime;
       state.budget = budget;
     },
     eInvite: (state, {payload}) => {

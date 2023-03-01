@@ -353,6 +353,11 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
 /**
  * 1. Remove default vertical scrollbar in IE 6/7/8/9.
  * 2. Improve readability and alignment in all browsers.
@@ -415,57 +420,17 @@ textarea {
 
 /*Define Fonts*/
 @font-face {
-    font-family: IRANSans;
+    font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_Bold.eot");
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_Bold.eot?#iefix") format("embedded-opentype"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Bold.woff2") format("woff2"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Bold.woff") format("woff"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Bold.ttf") format("truetype");
+    src:  url("../public/fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: 500;
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_Medium.eot");
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_Medium.eot?#iefix") format("embedded-opentype"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Medium.woff2") format("woff2"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Medium.woff") format("woff"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Medium.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: 300;
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_Light.eot");
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_Light.eot?#iefix") format("embedded-opentype"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Light.woff2") format("woff2"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Light.woff") format("woff"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_Light.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: IRANSans;
-    font-style: normal;
-    font-weight: 200;
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_UltraLight.eot");
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb_UltraLight.eot?#iefix") format("embedded-opentype"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_UltraLight.woff2") format("woff2"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_UltraLight.woff") format("woff"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb_UltraLight.ttf") format("truetype");
-}
-
-@font-face {
-    font-family: IRANSans;
+    font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb.eot");
-    src: url("../public/fonts/IRANSansWeb/IRANSansWeb.eot?#iefix") format("embedded-opentype"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb.woff2") format("woff2"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb.woff") format("woff"),
-    url("../public/fonts/IRANSansWeb/IRANSansWeb.ttf") format("truetype");
+    src:  url("../public/fonts/montserrat/Montserrat-Light.ttf") format("truetype");
 }
+
 
