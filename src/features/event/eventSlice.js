@@ -3,6 +3,8 @@ import {eventStep, getCurrentEvents, getCurrentInProgressEvent} from '../../app/
 
 const initialState = {
   list: getCurrentEvents(),
+  selectedEvent: null,
+  checkList: [],
   ...{
     step: eventStep.INTRO,
     occasion: null,
@@ -26,6 +28,9 @@ export const eventSlice = createSlice({
   reducers: {
     changeStep: (state, {payload}) => {
       state.step = payload;
+    },
+    changeSelectedEvent: (state, {payload}) => {
+      state.selectedEvent = payload;
     },
     occasion: (state, {payload}) => {
       state.occasion = payload;
@@ -66,6 +71,7 @@ export const {
   foodArrangement,
   alcoholIncluded,
   decorator,
-  rentBoardGame
+  rentBoardGame,
+  changeSelectedEvent
 } = eventSlice.actions
 export default eventSlice.reducer;

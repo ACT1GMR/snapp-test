@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import classnames from "classnames";
 import {eventStep} from "../../../app/status";
@@ -19,9 +19,13 @@ export default function Selections() {
   const dispatch = useDispatch();
   const {step} = event;
 
-  const classNames = classnames({});
-
   const currentOption = optionsMap[step];
+
+  useEffect(() => {
+    if (value) {
+      setValue(null);
+    }
+  }, [step]);
 
   const nextStep = e => {
     setValue(null);
@@ -29,7 +33,7 @@ export default function Selections() {
   }
 
   return (
-    <div className={classNames}>
+    <div>
       <p className="font-bold text-xs w-full">
         {
           step === eventStep.CREATE_NEW_EVENT.SELECT_EVENT_TYPE ? "What is the occasion?" : "What is the size of the guest list? "

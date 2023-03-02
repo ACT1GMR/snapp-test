@@ -5,7 +5,7 @@ import Navigate from "./Navigate";
 import Progress from "./Progress";
 
 
-export default function Index() {
+export default function Index({noProgress, navigateText, dontTrack, backStep}) {
 
   const classNames = classnames({
     "mb-4": true,
@@ -13,8 +13,8 @@ export default function Index() {
 
   return (
     <div className={classNames}>
-      <Navigate/>
-      <Progress/>
+      <Navigate navigateText={navigateText} dontTrack={dontTrack} backStep={backStep}/>
+      {!noProgress && <Progress/>}
     </div>
   );
 }

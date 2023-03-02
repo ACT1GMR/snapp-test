@@ -24,7 +24,7 @@ export default function Previous() {
             outDatedEvents.map((evt, index) => {
               return <div
                 className="flex flex-col cursor-pointer p-2 bg-neutral-800 rounded-md"
-                key={evt.time + index}>
+                key={evt.dateTime}>
                 <img src={iconsMap[evt.occasion]} alt={evt.name}
                      className="self-start w-7 h-7 p-1 rounded-full ring-1 ring-neutral-300 dark:ring-neutral-500"/>
                 <p className="font-bold text-sm mt-2">{evt.name}</p>

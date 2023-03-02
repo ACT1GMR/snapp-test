@@ -20,7 +20,7 @@ export default function Index({onClick, disable, text}) {
   const nextStep = () => {
     if (step === eventStep.CREATE_NEW_EVENT.RENT_BOARD_GAMES) {
       const rentBoardGame = onClick();
-      const {list, step, ...item} = event;
+      const {list, step, selectedItem, ...item} = event;
       setEvent({...item, rentBoardGame});
       return dispatch(changeStep(eventStep.INTRO));
     }
@@ -30,7 +30,7 @@ export default function Index({onClick, disable, text}) {
 
   return (
     <div className={classNames}>
-      <button onClick={nextStep} className={buttonClassNames}>{text || "NEXT"}</button>
+      <button onClick={!disable && nextStep} className={buttonClassNames}>{text || "NEXT"}</button>
     </div>
   );
 }

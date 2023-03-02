@@ -2,6 +2,7 @@ const EVENT_LIST_KEY = "EVENT_LIST_KEY";
 const CURRENT_EVENT_IN_PROGRESS = "CURRENT_EVENT_PROGRESS";
 export const eventStep = {
   INTRO: "INTRO",
+  CHECKLIST: "CHECKLIST",
   CREATE_NEW_EVENT: {
     SELECT_EVENT_TYPE: "SELECT_EVENT_TYPE",
     SELECT_EVENT_SIZE: "SELECT_EVENT_SIZE",
@@ -60,6 +61,20 @@ export function setEvent(item) {
   const list = [...getCurrentEvents(), item].sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime));
   return localStorage.setItem(EVENT_LIST_KEY, JSON.stringify(list));
 }
+
+export function updateEvent(id, updateObject) {
+  const list = getCurrentEvents();
+  if (list.length) {
+    const index = list.findIndex(e => e.dateTime === id);
+    if (index > -1) {
+      const item = list[index];
+      list.splice(index, 1);
+      localStorage.setItem(EVENT_LIST_KEY, JSON.stringify(list));
+      setEvent({...item, ...updateObject});
+    }
+  }
+}
+
 
 export function getLastValidEvent(item) {
   const events = getCurrentEvents().filter(evt => evt.dateTime >= Date.now());

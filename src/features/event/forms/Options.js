@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import classnames from "classnames";
-import {eventStep} from '../../../app/status';
+import {eventStep, setCurrentInProgressEvent} from '../../../app/status';
 import {useDispatch, useSelector} from "react-redux";
 import {
   selectEvent,
@@ -18,7 +18,7 @@ import cake from "../../../assets/icons/cake-1.png";
 import dart from "../../../assets/icons/dart.png";
 
 export default function Options() {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState();
   const event = useSelector(selectEvent);
   const dispatch = useDispatch();
 
@@ -26,6 +26,12 @@ export default function Options() {
   const classNames = classnames({
     "flex flex-col justify-center items-center": true
   });
+
+  useEffect(() => {
+    if (value) {
+      setValue(null);
+    }
+  }, [step]);
 
   const currentOption = optionsMap[step];
   const nextStep = () => {

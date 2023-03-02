@@ -41,9 +41,7 @@ export default function Upcoming() {
           lastValidEvent ? <UpcomingExist upcoming={lastValidEvent}/> :
             <UpcomingNoExist creatNewEvent={creatNewEvent}/>
         }
-
       </div>
-
     </div>
   );
 }
